@@ -1,6 +1,14 @@
 import User from './User';
 import Company from './Company';
 
+interface Item {
+  name: string;
+  location: {
+    lat: number;
+    long: number;
+  };
+}
+
 class CustomMap {
   private googleMap: google.maps.Map;
 
@@ -14,25 +22,36 @@ class CustomMap {
     );
   }
 
-  addUserMarker(user: User): void {
+  addMarker(item: Item): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.long,
+        lat: item.location.lat,
+        lng: item.location.long,
       },
     });
   }
 
-  addCompanyMarker(company: Company): void {
-    new google.maps.Marker({
-      map: this.googleMap,
-      position: {
-        lat: company.location.lat,
-        lng: company.location.long,
-      },
-    });
-  }
+  // refactor - too much deplications
+  // addUserMarker(user: User): void {
+  //   new google.maps.Marker({
+  //     map: this.googleMap,
+  //     position: {
+  //       lat: user.location.lat,
+  //       lng: user.location.long,
+  //     },
+  //   });
+  // }
+
+  // addCompanyMarker(company: Company): void {
+  //   new google.maps.Marker({
+  //     map: this.googleMap,
+  //     position: {
+  //       lat: company.location.lat,
+  //       lng: company.location.long,
+  //     },
+  //   });
+  // }
 }
 
 export default CustomMap;

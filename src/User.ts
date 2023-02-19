@@ -7,6 +7,8 @@ class User {
   ) {
     this.name = faker.name.firstName();
     this.location = {
+      // faker return string type for lat & long
+      // we want number type
       lat: parseFloat(faker.address.latitude()),
       long: parseFloat(faker.address.longitude()),
     };

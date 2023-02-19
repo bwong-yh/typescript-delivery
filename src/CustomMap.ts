@@ -62,4 +62,4 @@ class CustomMap {
   // }
 }
 
-export default CustomMap;
+export { CustomMap, MapItem };

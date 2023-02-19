@@ -22829,6 +22829,7 @@ exports.default = Company;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.CustomMap = void 0;
 var CustomMap = /** @class */function () {
   function CustomMap(elementId) {
     this.googleMap = new google.maps.Map(document.getElementById(elementId), {
@@ -22857,7 +22858,7 @@ var CustomMap = /** @class */function () {
   };
   return CustomMap;
 }();
-exports.default = CustomMap;
+exports.CustomMap = CustomMap;
 },{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -22871,10 +22872,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 var User_1 = __importDefault(require("./User"));
 var Company_1 = __importDefault(require("./Company"));
-var CustomMap_1 = __importDefault(require("./CustomMap"));
+var CustomMap_1 = require("./CustomMap");
 var user = new User_1.default();
 var company = new Company_1.default();
-var map = new CustomMap_1.default('map');
+var map = new CustomMap_1.CustomMap('map');
 // map.addUserMarker(user);
 // map.addCompanyMarker(company);
 map.addMarker(user);

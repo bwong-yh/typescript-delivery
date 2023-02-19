@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
+import { MapItem } from './CustomMap';
 
-class Company {
+class Company implements MapItem {
   public name: string;
   public catchPhrase: string;
   public location: { lat: number; long: number };

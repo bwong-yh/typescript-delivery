@@ -2,11 +2,11 @@ import User from './User';
 import Company from './Company';
 
 interface MapItem {
-  name: string;
   location: {
     lat: number;
     long: number;
   };
+  markerContent(): string;
 }
 
 class CustomMap {
@@ -33,7 +33,7 @@ class CustomMap {
 
     marker.addListener('click', () => {
       const infoWindow = new google.maps.InfoWindow({
-        content: 'hello',
+        content: mapItem.markerContent(),
       });
 
       infoWindow.open(this.googleMap, marker);

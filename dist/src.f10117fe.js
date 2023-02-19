@@ -22793,6 +22793,9 @@ var User = /** @class */function () {
       long: parseFloat(faker_1.faker.address.longitude())
     };
   }
+  User.prototype.markerContent = function () {
+    return "User: ".concat(this.name);
+  };
   return User;
 }();
 exports.default = User;
@@ -22814,6 +22817,9 @@ var Company = /** @class */function () {
       long: parseFloat(faker_1.faker.address.longitude())
     };
   }
+  Company.prototype.markerContent = function () {
+    return "<div><h1>Company: ".concat(this.name, "</h1>\n    <h3>").concat(this.catchPhrase, "</h3></div>\n    ");
+  };
   return Company;
 }();
 exports.default = Company;
@@ -22844,7 +22850,7 @@ var CustomMap = /** @class */function () {
     });
     marker.addListener('click', function () {
       var infoWindow = new google.maps.InfoWindow({
-        content: 'hello'
+        content: mapItem.markerContent()
       });
       infoWindow.open(_this.googleMap, marker);
     });

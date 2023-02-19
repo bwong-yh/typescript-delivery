@@ -1,0 +1,11 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#map {
+    flex: 1
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

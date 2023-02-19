@@ -22832,8 +22832,13 @@ var User_1 = __importDefault(require("./User"));
 var Company_1 = __importDefault(require("./Company"));
 var user = new User_1.default();
 var company = new Company_1.default();
-console.log(user);
-console.log(company);
+new google.maps.Map(document.getElementById('map'), {
+  center: {
+    lat: 0,
+    lng: 0
+  },
+  zoom: 1
+});
 },{"./User":"src/User.ts","./Company":"src/Company.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -22859,7 +22864,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57845" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56796" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

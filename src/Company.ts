@@ -1,11 +1,13 @@
 import { faker } from '@faker-js/faker';
 
-class User {
+class Company {
   public name: string;
+  public catchPhrase: string;
   public location: { lat: number; long: number };
 
   constructor() {
-    this.name = faker.name.firstName();
+    this.name = faker.company.name();
+    this.catchPhrase = faker.company.catchPhrase();
     this.location = {
       // faker return string type for lat & long
       // we want number type
@@ -15,4 +17,4 @@ class User {
   }
 }
 
-export default User;
+export default Company;

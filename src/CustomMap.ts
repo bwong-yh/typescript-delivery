@@ -1,7 +1,7 @@
 import User from './User';
 import Company from './Company';
 
-interface Item {
+interface MapItem {
   name: string;
   location: {
     lat: number;
@@ -22,13 +22,21 @@ class CustomMap {
     );
   }
 
-  addMarker(item: Item): void {
-    new google.maps.Marker({
+  addMarker(mapItem: MapItem): void {
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: item.location.lat,
-        lng: item.location.long,
+        lat: mapItem.location.lat,
+        lng: mapItem.location.long,
       },
+    });
+
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'hello',
+      });
+
+      infoWindow.open(this.googleMap, marker);
     });
   }
 

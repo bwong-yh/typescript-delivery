@@ -22833,13 +22833,20 @@ var CustomMap = /** @class */function () {
       zoom: 1
     });
   }
-  CustomMap.prototype.addMarker = function (item) {
-    new google.maps.Marker({
+  CustomMap.prototype.addMarker = function (mapItem) {
+    var _this = this;
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: item.location.lat,
-        lng: item.location.long
+        lat: mapItem.location.lat,
+        lng: mapItem.location.long
       }
+    });
+    marker.addListener('click', function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: 'hello'
+      });
+      infoWindow.open(_this.googleMap, marker);
     });
   };
   return CustomMap;
@@ -22891,7 +22898,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59983" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60046" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
